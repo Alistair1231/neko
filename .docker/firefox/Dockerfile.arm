@@ -11,6 +11,8 @@ RUN set -eux; apt-get update; \
     mkdir -p /usr/lib/firefox-esr/distribution/extensions; \
     wget -O '/usr/lib/firefox-esr/distribution/extensions/uBlock0@raymondhill.net.xpi' https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi; \
     wget -O '/usr/lib/firefox-esr/distribution/extensions/sponsorBlocker@ajay.app.xpi' https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi; \
+    wget -O '/usr/lib/firefox-esr/distribution/extensions/ttv-lol-pro@YounesAassila.xpi' https://addons.mozilla.org/firefox/downloads/latest/ttv-lol-pro/latest.xpi; \
+    wget -O '/usr/lib/firefox-esr/distribution/extensions/istilldontcareaboutcookies@guus.xpi' https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi; \
     #
     # create a profile directory
     mkdir -p /home/neko/.mozilla/firefox/profile.default/extensions; \
