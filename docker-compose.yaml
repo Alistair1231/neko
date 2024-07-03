@@ -1,15 +1,25 @@
-version: "3.4"
 services:
   neko:
-    image: "m1k1o/neko:firefox"
+    # image: "m1k1o/neko:firefox"
+    build:
+      context: .docker/firefox
+      dockerfile: Dockerfile
     restart: "unless-stopped"
     shm_size: "2gb"
     ports:
-      - "8080:8080"
+    # using reverse procy in same network, so no need to expose port  
+    #   - "8292:8080"
       - "52000-52100:52000-52100/udp"
     environment:
-      NEKO_SCREEN: 1920x1080@30
-      NEKO_PASSWORD: neko
-      NEKO_PASSWORD_ADMIN: admin
+      NEKO_SCREEN: 1920x1080@60
+      NEKO_PASSWORD: ${NEKO_PASSWORD}
+      NEKO_PASSWORD_ADMIN: ${NEKO_PASSWORD_ADMIN}
       NEKO_EPR: 52000-52100
       NEKO_ICELITE: 1
+    networks:
+      - apps
+
+networks:
+  apps:
+    driver: bridge
+    external: true
